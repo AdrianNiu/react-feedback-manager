@@ -11,7 +11,7 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br/>
-      </div>
+      </div> 
     );
   }
 }
