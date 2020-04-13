@@ -24,19 +24,13 @@ class Feeling extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(`Adding feeling`, this.state.feedback.feeling);
-
-        // POST request to add new customer
-        // axios.post('/api/order', this.state.newCustomer)
-        //     .then(response => {
-        //         console.log('Added successfully');
-        //     })
-        //     .catch(error => {
-        //         console.log('Error adding customer', error);
-        //     })
-
-        this.props.dispatch({ type: 'SET_FEELING', payload: this.state.feedback })
-        //
-        this.props.history.push('/understand');
+        if (this.state.feedback.feeling === ''){
+            alert('Please input your value to proceed.');
+        } else {
+            this.props.dispatch({ type: 'SET_FEELING', payload: this.state.feedback })
+            this.props.history.push('/understand');
+        }
+        
     }
 
     render() {

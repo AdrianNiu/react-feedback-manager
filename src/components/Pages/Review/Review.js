@@ -17,13 +17,20 @@ class Review extends Component {
         axios.post('/feedback', fbDetails)
             .then((result) => {
                 console.log('Posted to the server');
-                this.props.history.push('/');
+                this.props.history.push('/thank');
             })
             .catch((error) => {
                 alert(`Couldn't submit your feedback. Please try again`);
                 console.log('Got an error.', error);
             })
     }; //end handle click
+
+    handleSubmitPrevious = (event) => {
+        event.preventDefault();
+
+        // this.props.dispatch({ type: 'SET_FEELING', payload: this.state.feedback })
+        this.props.history.push('/comment');
+    }
 
     render() {
         return (
@@ -41,7 +48,7 @@ class Review extends Component {
                     <br />
                 </div>
                
-
+                <button type="submit" onClick={this.handleSubmitPrevious}>Back</button>
                 <button onClick={(event) => this.handleClick(event)}>Submit</button>
             </div>
         );

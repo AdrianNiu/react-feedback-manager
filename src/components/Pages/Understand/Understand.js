@@ -27,18 +27,20 @@ class Understand extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(`Adding understand`, this.state.feedback.understanding);
-
-        // POST request to add new customer
-        // axios.post('/api/order', this.state.newCustomer)
-        //     .then(response => {
-        //         console.log('Added successfully');
-        //     })
-        //     .catch(error => {
-        //         console.log('Error adding customer', error);
-        //     })
+        if (this.state.feedback.understanding === '') {
+            alert('Please input your value to proceed.');
+        } else {
 
         this.props.dispatch({ type: 'SET_UNDERSTAND', payload: this.state.feedback })
          this.props.history.push('/support');
+        }
+    }
+
+    handleSubmitPrevious = (event) => {
+        event.preventDefault();
+
+        // this.props.dispatch({ type: 'SET_FEELING', payload: this.state.feedback })
+        this.props.history.push('/');
     }
 
     render() {
@@ -46,6 +48,7 @@ class Understand extends Component {
             <div>
 
                 <main>
+                    <h2>Daily Feedback</h2>
                     <h2>How are your understanding today?</h2>
                     <form>
                         <input type="text" placeholder="Understanding?  Scale: 1 - 5" value={this.state.feedback.understanding}
@@ -53,6 +56,7 @@ class Understand extends Component {
                         
                     </form>
                     <nav>
+                        <button type="submit" onClick={this.handleSubmitPrevious}>Back</button>
                         <button type="submit" onClick={this.handleSubmit}>Next</button>
                     </nav>
                 </main>

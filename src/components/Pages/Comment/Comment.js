@@ -28,17 +28,15 @@ class Comment extends Component {
         event.preventDefault();
         console.log(`Adding comments`, this.state.feedback.comments);
 
-        // POST request to add new customer
-        // axios.post('/api/order', this.state.newCustomer)
-        //     .then(response => {
-        //         console.log('Added successfully');
-        //     })
-        //     .catch(error => {
-        //         console.log('Error adding customer', error);
-        //     })
-
         this.props.dispatch({ type: 'SET_COMMENT', payload: this.state.feedback })
         this.props.history.push('/review');
+    }
+
+    handleSubmitPrevious = (event) => {
+        event.preventDefault();
+
+        // this.props.dispatch({ type: 'SET_FEELING', payload: this.state.feedback })
+        this.props.history.push('/support');
     }
 
     render() {
@@ -46,13 +44,15 @@ class Comment extends Component {
             <div>
 
                 <main>
+                    <h2>Daily Feedback</h2>
                     <h2>Want to leave any comments?</h2>
                     <form>
-                        <input type="text" placeholder="Any Comments?" value={this.state.feedback.comments}
+                        <input type="text" placeholder="Any Comments? (Optional)" value={this.state.feedback.comments}
                             onChange={(event) => this.handleChangeFor('comments', event)} />
 
                     </form>
                     <nav>
+                        <button type="submit" onClick={this.handleSubmitPrevious}>Back</button>
                         <button type="submit" onClick={this.handleSubmit}>Next</button>
                     </nav>
                 </main>

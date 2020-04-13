@@ -9,8 +9,10 @@ import Understand from '../Pages/Understand/Understand';
 import Support from '../Pages/Support/Support';
 import Comment from '../Pages/Comment/Comment';
 import Review from '../Pages/Review/Review';
+import Thank from '../Pages/Thank/Thank';
 
 import { withRouter } from 'react-router';
+
 
 class App extends Component {
   render() {
@@ -28,6 +30,7 @@ class App extends Component {
           <Route path='/support' component={Support} />
           <Route path='/comment' component={Comment} />
           <Route path='/review' component={Review} />
+          <Route path='/thank' component={Thank} />
         </Router> 
       </div> 
     );
