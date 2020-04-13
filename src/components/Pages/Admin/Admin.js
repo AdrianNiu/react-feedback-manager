@@ -29,9 +29,31 @@ export class Admin extends Component {
             })
     }
 
-    deleteFeedback = () => {
-        console.log('Deleted');
-        
+
+    deleteSong = (id) => {
+        console.log('Deleting song', id);
+        // For delete, must put the id of the song on the URL
+        axios.delete(`/songs/${id}`)
+            .then((response) => {
+                this.getSongs();
+            })
+            .catch((error) => {
+                alert('Error on delete');
+                console.log('Error on DELETE', error);
+
+            })
+    }
+
+    deleteFeedback = (id) => {
+        console.log('Deleted feedback', id);
+        axios.delete(`/feedback/${id}`)
+            .then((response) => {
+                this.getFeedback();
+            }).catch((error) => {
+                alert('Error on delete');
+                console.log('Error on DELETE', error);
+
+            })
     }
 
     render() {

@@ -16,3 +16,8 @@ app.use('/feedback', fbRouter);
 app.listen(PORT, () => {
     console.log('Listening on port: ', PORT);
 });
+
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log('server up on:', port);
+})   
