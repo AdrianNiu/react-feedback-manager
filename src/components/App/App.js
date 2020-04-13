@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
+import { HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+
+// Import Home into pages
+import Home from '../Pages/Home/Home';
+import Understand from '../Pages/Understand/Understand';
+import Support from '../Pages/Support/Support';
+import Comment from '../Pages/Comment/Comment';
+import Review from '../Pages/Review/Review';
+
+import { withRouter } from 'react-router';
 
 class App extends Component {
   render() {
@@ -11,9 +21,17 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br/>
+
+        <Router>
+          <Route exact path='/' component={Home} />
+          <Route path='/understand' component={Understand} />
+          <Route path='/support' component={Support} />
+          <Route path='/comment' component={Comment} />
+          <Route path='/review' component={Review} />
+        </Router> 
       </div> 
     );
   }
 }
 
-export default App;
+export default withRouter(App);
