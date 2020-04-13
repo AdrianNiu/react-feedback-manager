@@ -21,3 +21,6 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log('server up on:', port);
 })   
+
+//heroku addons:create heroku-postgresql:hobby-dev
+//heroku pg:push prime_feedback DATABASE_URL
