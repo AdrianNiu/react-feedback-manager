@@ -3,6 +3,9 @@ import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 class Understand extends Component {
 
    
@@ -51,13 +54,28 @@ class Understand extends Component {
                     <h2>Daily Feedback</h2>
                     <h2>How are your understanding today?</h2>
                     <form>
-                        <input type="text" placeholder="Understanding?  Scale: 1 - 5" value={this.state.feedback.understanding}
-                            onChange={(event) => this.handleChangeFor('understanding', event)} />
+
+                        <TextField
+                            type="text"
+                            value={this.state.feedback.understanding}
+                            onChange={(event) => { this.handleChangeFor('understanding', event) }}
+                            required
+                            id="standard-with-placeholder"
+                            label="Understanding?  1 - 5"
+                            placeholder="Understanding?  Scale: 1 - 5"
+                            margin="normal"
+                        /> 
+                        {/* <input type="text" placeholder="Understanding?  Scale: 1 - 5" value={this.state.feedback.understanding}
+                            onChange={(event) => this.handleChangeFor('understanding', event)} /> */}
                         
                     </form>
                     <nav>
-                        <button type="submit" onClick={this.handleSubmitPrevious}>Back</button>
-                        <button type="submit" onClick={this.handleSubmit}>Next</button>
+                        <Button variant="contained" color="secondary" type="submit" onClick={this.handleSubmitPrevious}>Back</Button>
+                        <Button variant="contained" color="secondary" type="submit" onClick={this.handleSubmit}>Next</Button>
+                        
+                        
+                        {/* <button type="submit" onClick={this.handleSubmitPrevious}>Back</button> */}
+                        {/* <button type="submit" onClick={this.handleSubmit}>Next</button> */}
                     </nav>
                 </main>
             </div>

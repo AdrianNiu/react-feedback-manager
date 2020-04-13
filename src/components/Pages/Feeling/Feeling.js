@@ -3,6 +3,13 @@ import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
+
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
+
+
+
 class Feeling extends Component {
 
     state = {
@@ -40,12 +47,31 @@ class Feeling extends Component {
                 <main>
                     <h2>How are you feeling today?</h2>
                     <form>
-                        <input type="text" placeholder="Feeling?  Scale: 1 - 5" value={this.state.feedback.feeling}
-                            onChange={(event) => this.handleChangeFor('feeling', event)} />
+                        
+                        <TextField
+                            type="text"
+                            value={this.state.feedback.feeling}
+                            onChange={(event) => { this.handleChangeFor('feeling', event) }}
+                            required
+                            id="standard-with-placeholder"
+                            label="Feeling? Scale: 1 - 5"
+                            placeholder="Feeling?  Scale: 1 - 5"
+                            margin="normal"
+                        /> 
+                        
+                        
+                        
+                        
+                        
+                        {/* <input type="text" placeholder="Feeling?  Scale: 1 - 5" value={this.state.feedback.feeling}
+                            onChange={(event) => this.handleChangeFor('feeling', event)} /> */}
                         
                     </form>
                     <nav>
-                        <button type="submit" onClick={this.handleSubmit}>Next</button>
+                        <Button variant="contained" color="secondary" type="submit" onClick={this.handleSubmit}>
+                            Next
+                        </Button>
+                        {/* <button type="submit" onClick={this.handleSubmit}>Next</button> */}
                     </nav>
                 </main>
             </div>

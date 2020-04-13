@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
+import Button from '@material-ui/core/Button';
+
+
 class Review extends Component {
 
     handleClick = (event) => {
@@ -48,8 +51,10 @@ class Review extends Component {
                     <br />
                 </div>
                
-                <button type="submit" onClick={this.handleSubmitPrevious}>Back</button>
-                <button onClick={(event) => this.handleClick(event)}>Submit</button>
+                <Button variant="contained" color="secondary" type="submit" onClick={this.handleSubmitPrevious}>Back</Button>
+                <Button variant="contained" color="secondary" type="submit" onClick={(event) => this.handleClick(event)}>Submit</Button>
+                {/* <button type="submit" onClick={this.handleSubmitPrevious}>Back</button>
+                <button onClick={(event) => this.handleClick(event)}>Submit</button> */}
             </div>
         );
     }
