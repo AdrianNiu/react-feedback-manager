@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //Import Axios
-import axios from 'axios';
+// import axios from 'axios';
 
 //Connect to the redux store
 import { connect } from 'react-redux';
@@ -17,20 +17,7 @@ class Home extends Component {
         
     }
 
-    // handleChangePage = () => {
-    //     //change page to info page
-    //     this.props.history.push('/info');
-    // }
-
-    getFeedback = () => {
-        axios.get('./feedback')
-            .then(response => {
-                console.log('Feedback', response.data);
-                this.props.dispatch({ type: 'SET_FB', payload: response.data })
-            }).catch(error => {
-                console.log('error displaying Feedback', error);
-            })
-    }
+    
 
     handleSubmit = () => {
         this.props.history.push('/info');

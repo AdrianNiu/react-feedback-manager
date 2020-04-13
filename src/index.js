@@ -58,7 +58,7 @@ const comments = (state = [], action) => {
 
 // The store is the big JavaScript Object that holds all of the information for our application
 const storeInstance = createStore(
-    combineReducers({ feeling, understanding, support, comments }), //Add reducer functions to combineReducers
+    combineReducers({ fbList, feeling, understanding, support, comments }), //Add reducer functions to combineReducers
     applyMiddleware(logger) //Add our middleware logger
 );
 

@@ -10,6 +10,8 @@ import Support from '../Pages/Support/Support';
 import Comment from '../Pages/Comment/Comment';
 import Review from '../Pages/Review/Review';
 import Thank from '../Pages/Thank/Thank';
+import Admin from '../Pages/Admin/Admin';
+import AdminButton from '../Pages/AdminButton/AdminButton'
 
 import { withRouter } from 'react-router';
 
@@ -17,6 +19,7 @@ import { withRouter } from 'react-router';
 class App extends Component {
   render() {
     return (
+      
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
@@ -31,8 +34,24 @@ class App extends Component {
           <Route path='/comment' component={Comment} />
           <Route path='/review' component={Review} />
           <Route path='/thank' component={Thank} />
+          <Route path='/admin' component={Admin} />
         </Router> 
+
+        <br/>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <footer> <AdminButton /> </footer>
       </div> 
+     
+
     );
   }
 }

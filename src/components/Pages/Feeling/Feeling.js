@@ -40,6 +40,8 @@ class Feeling extends Component {
         
     }
 
+   
+
     render() {
         return (
             <div>
